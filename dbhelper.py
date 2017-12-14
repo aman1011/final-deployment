@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 # connect to database
-engine = create_engine('sqlite:///musicbandswithalbums.db')
+engine = create_engine("postgresql://catalog:topsecret@localhost/catalogdb")
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
