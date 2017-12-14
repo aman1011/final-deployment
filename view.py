@@ -44,7 +44,7 @@ redis = Redis()
 def showLogin():
     state = ''.join(random.choice(
         string.ascii_uppercase + string.digits) for x in xrange(32))
-    print state
+    
     login_session['state'] = state
 
     return render_template('login.html', STATE=state)
@@ -53,8 +53,6 @@ def showLogin():
 # gconnect module
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
-    print "reached here"
-    print login_session
     # validating the state token.
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
