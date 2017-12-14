@@ -25,12 +25,11 @@ import requests
 app = Flask(__name__)
 auth = HTTPBasicAuth()
 
-CLIENT_ID_GOOGLE = json.loads(open(
-	'client_secret.json', 'r').read())['web']['client_id']
+CLIENT_ID_GOOGLE = '92511537525-7r42l0m7g3uia3d76snqf0rr54dv1s2n.apps.googleusercontent.com'
 APPLICATION_NAME = "Music Album Catalog App"
 
 # connect to database
-engine = create_engine('sqlite:///musicbandswithalbums.db')
+engine = create_engine("postgresql://catalog:topsecret@localhost/catalogdb")
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
