@@ -11,12 +11,6 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-Music_Bands = session.query(Music_Band).all()
-for band in Music_Bands:
-	print band.id
-	print band.name
-	print band.user_id
-
 # Insert Bands
 session.add(Music_Band(name='Linkin Park', user_id=1,))
 session.commit()
